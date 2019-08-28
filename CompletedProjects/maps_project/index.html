@@ -14,47 +14,21 @@
   </head>
   <body>
 
-
+     <!-- Title of Web App -->
     <h1 class="text-center">CrapMaps</h1>
     <p class="text-center">*Maps Icons Collection <a href="https://mapicons.mapsmarker.com">https://mapicons.mapsmarker.com</a>. For Educational purposes. Please don't misuse.</p>
+
+    <!-- Map div for loading the Google Map -->
     <div id="map"></div>
 
-    <script>
 
-      function initMap() {
-        // Map Options
-        var options = {
-          zoom: 14,
-          center: {lat: 33.6405, lng: -117.8443}
-        }
 
-        // New Map
-        var map = new google.maps.Map(document.getElementById('map'), options);
 
-        // Add marker with custom icon
-        var marker = new google.maps.Marker({
-            map:map,
-            draggable: true,
-            animation: google.maps.Animation.DROP,
-            position:{lat:33.644096,lng: -117.8443},
-
-            icon: 'imgs/toilet.png'
-        });
-      }
-
-      function toggleBounce() {
-          if (marker.getAnimation() !== null) {
-              marker.setAnimation(null);
-          } else {
-              marker.setAnimation(google.maps.Animation.BOUNCE);
-          }
-      }
-
-    </script>
-
+    <!-- Crap Map JavaScript files/links -->
+    <script type="text/javascript" src="js/crap_map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQFf8Y0KTPk4idDih_o2OYmriByDTzSwM&callback=initMap"
     async defer></script>
-    <!-- Optional JavaScript -->
+
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
