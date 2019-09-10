@@ -15,14 +15,15 @@ function initMap() {
 
   // ––––––––– Function for adding Marker ––––––––
   // The marker has a cusotm toilet icon, drop animation,
-  // coordinates,and name of the bathroom location
+  // coordinates,and default name of the bathroom location
   function addMarker(mker){
       var marker = new google.maps.Marker({
           map:map,
           draggable: true,
           icon: 'imgs/toilet.png',
           animation: google.maps.Animation.DROP,
-          position: mker.coords
+          position: mker.coords,
+          content: 'Bathroom'
       });
 
       // Add title/name of bathroom
@@ -32,16 +33,32 @@ function initMap() {
 
       // Open info window when marker is clicked
       marker.addListener('click', function(){
+          updateContent(infoWindow);
           infoWindow.open(map, marker);
       });
+
+      // Remove infoWindow when map is clicked
+      google.maps.event.addListener(map, 'click', function(){
+        infoWindow.close();
+      })
   }
 
 
-  // Event listener to add markers wherever the user clicks on the map
-    google.maps.event.addListener(map, 'click',
+
+  function updateContent(infoWindow){
+      infoWindow.setContent('Wassup')
+  }
+
+
+
+    // Event listener to add markers wherever the user double clicks on the map
+    google.maps.event.addListener(map, 'rightclick',
       function(event){
           addMarker({coords:event.latLng});
       })
+
+
+
 
 
   // –––––––– Get user location ––––––––
