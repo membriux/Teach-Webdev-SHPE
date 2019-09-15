@@ -5,19 +5,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
+        <!-- Bootstrap 4 CSS CDN  -->
         <link
             rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
             crossorigin="anonymous"
         />
+
+        <!-- Press Start 2P font -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Custom CSS -->
         <link rel="stylesheet" href="./css/index.css" />
 
         <title>Pokedex</title>
     </head>
     <body>
-        <header><h1 class="text-center">Pokedex</h1></header>
-        <div class="">
+        <h1 class="text-center">Pokedex</h1>
+        <br />
+
+        <!-- Seach Bar -->
+        <div class="container">
             <form class="form-inline my-2 my-lg-0 justify-content-center">
                 <input
                     class="form-control mr-sm-2"
@@ -27,7 +39,14 @@
                 />
             </form>
         </div>
+        <br />
 
+        <!-- Main body of webpage -->
+        <!-- <div class="container main"> -->
+        <div class="row"></div>
+        <!-- </div> -->
+
+        <!-- Bootstrap 4 JS/JQuery/Popper CDN -->
         <script
             src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -44,5 +63,6 @@
             crossorigin="anonymous"
         ></script>
         <script src="./js/index.js"></script>
+        <script type="text/javascript" src="./Database/pokedex.json"></script>
     </body>
 </html>
