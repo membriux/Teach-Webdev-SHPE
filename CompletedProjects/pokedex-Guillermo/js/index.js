@@ -1,6 +1,7 @@
 //Get array of Nodes with class 'row'
 let row = document.getElementsByClassName('row')[0];
 
+//Javascript object to for pokemon types
 let typeMappings = {
     Normal: 'type-normal',
     Fire: 'type-fire',
@@ -22,6 +23,7 @@ let typeMappings = {
     Steel: 'type-steel'
 };
 
+//
 function loadPokemon(name, id, types) {
     row.innerHTML +=
         `<div class="col-md-4 col-sm-6 col-xs-12 bottom"> \
