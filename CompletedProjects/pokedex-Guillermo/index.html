@@ -25,25 +25,43 @@
         <title>Pokedex</title>
     </head>
     <body>
-        <h1 class="text-center">Pokedex</h1>
-        <br />
+        <nav
+            class="navbar navbar-expand-lg navbar-light"
+            style="background-color: #cc0000"
+        >
+            <a class="navbar-brand" href="#"><img src="./pokeball.png"/></a>
+            Pokedex
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto"></ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input
+                        class="form-control mr-sm-2"
+                        type="search"
+                        placeholder="Search"
+                        aria-label="Search"
+                    />
+                    <button
+                        class="btn btn-outline-light my-2 my-sm-0"
+                        type="submit"
+                    >
+                        Go
+                    </button>
+                </form>
+            </div>
+        </nav>
 
-        <!-- Seach Bar -->
-        <div class="container">
-            <form class="form-inline my-2 my-lg-0 justify-content-center">
-                <input
-                    class="form-control mr-sm-2"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                />
-            </form>
-        </div>
         <br />
 
         <!-- Main body of webpage -->
         <!-- <div class="container main"> -->
-        <div class="row"></div>
+        <div class="text-center">
+            <div class="spinner-border loading" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row"></div>
+        </div>
         <!-- </div> -->
 
         <!-- Bootstrap 4 JS/JQuery/Popper CDN -->

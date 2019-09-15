@@ -1,20 +1,41 @@
 //Get array of Nodes with class 'row'
 let row = document.getElementsByClassName('row')[0];
 
+let typeMappings = {
+    Normal: 'type-normal',
+    Fire: 'type-fire',
+    Water: 'type-water',
+    Electric: 'type-electric',
+    Grass: 'type-grass',
+    Ice: 'type-ice',
+    Fighting: 'type-fighting',
+    Poison: 'type-poison',
+    Ground: 'type-ground',
+    Flying: 'type-flying',
+    Psychic: 'type-psychic',
+    Bug: 'type-bug',
+    Rock: 'type-rock',
+    Ghost: 'type-ghost',
+    Fairy: 'type-fairy',
+    Dragon: 'type-dragon',
+    Dark: 'type-dark',
+    Steel: 'type-steel'
+};
+
 function loadPokemon(name, id, types) {
     row.innerHTML +=
-        `<div class="col-md-3 col-sm-6 col-xs-12 bottom"> \
-        <div class="card"> \
+        `<div class="col-md-4 col-sm-6 col-xs-12 bottom"> \
+        <div class="jumbotron"> \
             <img \
                 src="./Database/thumbnails/${id}.png" \
-                class="card-img" \
-                width="50"
-                height"50"
+                class="card-img rounded" \
                 alt="..." \
             /> \
-            <div class="card-body"> \
-                <p># ${id}</p>
-                <p class="card-title">${name}</p> \
+            <div class=""> \
+                <p>#${
+                    id < 10 ? '00' + id : id > 10 && id < 100 ? '0' + id : id
+                }</p>
+                <p class="">${name}</p> \
                 <hr>` +
         types.map(type => type).join('') +
         '</div> \
@@ -26,7 +47,9 @@ function createTypeLabels(types) {
     let result = [];
     for (var i = 0; i < types.length; i++) {
         result.push(
-            `<span class="badge badge-primary pr-2">${types[i]}</span>`
+            `<span class="badge ${typeMappings[types[i]]} mr-1">${
+                types[i]
+            }</span>`
         );
     }
     return result;
@@ -48,10 +71,16 @@ function loadJSON(callback) {
     xobj.send(null);
 }
 
+function hideLoading() {
+    let loading = document.getElementsByClassName('loading')[0];
+    loading.classList.add('hide-loading');
+}
+
 function init() {
     loadJSON(function(response) {
         // Parse JSON string into object
         var actual_JSON = JSON.parse(response);
+        hideLoading();
         actual_JSON.map(pokemon => {
             loadPokemon(
                 pokemon.name.english,
