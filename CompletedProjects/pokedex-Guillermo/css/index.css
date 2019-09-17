@@ -3,6 +3,27 @@ body {
     font-family: 'Press Start 2P', cursive;
 }
 
+/* Get rid of anchor tag effect */
+a {
+    color: inherit;
+    outline: none;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.progress {
+    margin-bottom: 15px;
+}
+
+/* Get rid of anchor tag effect */
+a:hover {
+    color: inherit;
+    outline: none;
+    text-decoration: none;
+}
+
 .hide-loading {
     visibility: hidden;
 }

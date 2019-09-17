@@ -27,6 +27,7 @@ let typeMappings = {
 function loadPokemon(name, id, types) {
     row.innerHTML +=
         `<div class="col-md-4 col-sm-6 col-xs-12 bottom"> \
+        <a href="./pokemon.html?id=${id}"> \
         <div class="jumbotron"> \
             <img \
                 src="./Database/thumbnails/${id}.png" \
@@ -41,6 +42,7 @@ function loadPokemon(name, id, types) {
                 <hr>` +
         types.map(type => type).join('') +
         '</div> \
+        </a> \
                 </div> \
                 </div>';
 }
