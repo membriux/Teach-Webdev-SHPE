@@ -13,4 +13,4 @@ After the second half, students should be able to:
  - embed BootStrap CSS into their HTML pages
  - customize their pages by easily adding buttons, components, & cards  
 
-
+![Finalized Static Webpage](https://i.imgur.com/0C2OreG.png)
