@@ -1,0 +1,13 @@
+{{#each items as |item|}}
+  <div class="listing">
+    {{#each img as |imgname|}}
+      <img src="../images/{{imgname}}" alt="" width="250px" height="350px">
+    {{/each}}
+    <h2>{{item.name}}</h2>
+    {{#each description as |line|}}
+      <p>{{line}}</p>
+    {{/each}}
+    <p>stock: {{stock}}</p>
+    <p>price: {{price}}</p>
+  </div>
+{{/each}}
