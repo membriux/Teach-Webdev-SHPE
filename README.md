@@ -1,2 +1,3 @@
-# Teach-Webdev-SHPE
-Project starters, guides, and instructions to facilitate learning web development.
+# Mongo Chat
+
+## Coming soon to a laptop near you.
