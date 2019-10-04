@@ -1,4 +1,14 @@
 
+/*
+Order:
+- Let/Var variables
+- BoardSquares class
+- Setup functions
+- Game logic
+- SetupGame() call
+*/
+
+
 //Board Squares will be stored in an array
 const boardSquares = []
 
@@ -25,12 +35,12 @@ class BoardSquares {
   reset() {
     this.choice = null;
     this.match = false
-    this.element.querySelector(".face-container").querySelector(".facedown").innerHTML = ''
+    this.element.querySelector(".face-container").querySelector(".facedown").innerHTML = '';
+    this.element.style.backgroundColor = "#fff";
     running = true;
     player = "x";
     document.getElementById("winner").innerHTML = "<br>";
     document.getElementById("reset-button").disabled = true;
-    canvas.clearRect(0,0,document.getElementById("gameboard").clientHeight,document.getElementById("gameboard").offsetWidth);
     document.getElementById("myCanvas").hidden = true;
   }
 
@@ -39,72 +49,62 @@ class BoardSquares {
   checkForWinner(){
     if (turn >= 4) {
       var x;
-      if (this.choice == "x") {
-        canvas.strokeStyle = "#E93636";
-      }
 
-      else {
-        canvas.strokeStyle = "#4C4CEE";
-      }
+      // Check rows and columns
+      this.winSides();
 
-      for (var i = 0;i<3; i++) {
-        x = i*3
-        if (boardSquares[x].choice ==
-          this.choice && boardSquares[x+1].choice == this.choice && boardSquares[x+2].choice == this.choice) {
-          this.match = true;
-          this.draw = {
-            "rightX": .11,
-            "rightY": .14+(i)*(.333),
-            "leftX": .89,
-            "leftY": .14+(i)*(.333)
-          };
-          this.drawLine();
-        }
-      }
+      // Diagonal top left to bottom right
+      this.winDiagonal(0,4,8);
 
-      for (var i = 0;i<3;i++) {
-        if (boardSquares[i].choice ==
-          this.choice && boardSquares[i+3].choice == this.choice && boardSquares[i+6].choice == this.choice) {
-          this.match = true;
-          this.draw = {
-            "rightX": .168+(i)*(.333),
-            "rightY": .064,
-            "leftX": .168+(i)*(.333),
-            "leftY": .89
-          };
-          this.drawLine();
-        }
-      }
-
-      if (boardSquares[0].choice == this.choice && boardSquares[4].choice == this.choice && boardSquares[8].choice == this.choice){
-        this.match = true;
-        this.draw = {
-          "rightX": .108,
-          "rightY": .067,
-          "leftX": .897,
-          "leftY": .883
-        };
-        this.drawLine();
-      }
-
-      else if (boardSquares[2].choice == this.choice && boardSquares[4].choice == this.choice && boardSquares[6].choice == this.choice){
-        this.match = true;
-        this.draw = {
-          "rightX": .897,
-          "rightY": .067,
-          "leftX": .108,
-          "leftY": .883
-        }
-        this.drawLine()
-      }
+      // Diagonal top right to bottom left
+      this.winDiagonal(2,4,6);
 
       if (this.match) {
-        document.getElementById("myCanvas").hidden = false;
         document.getElementById("winner").innerHTML = "Winner is: " + player.toUpperCase();
         document.getElementById("reset-button").disabled = false;
         running = false;
       }
     }
+  }
+
+  winSides(){
+    for (var y = 0;y<3; y++) {
+        let x = y*3;
+
+        // Check vertically
+        let y1 = boardSquares[y].choice;
+        let y2 = boardSquares[y+3].choice;
+        let y3 = boardSquares[y+6].choice;
+
+        // Check horizontally
+        let x1 = boardSquares[x].choice;
+        let x2 = boardSquares[x+1].choice;
+        let x3 = boardSquares[x+2].choice;
+        
+        if (y1 == y2 && y1 == y3){
+          this.match = true;
+          this.changeSquareWin([y,y+3,y+6]);
+          return
+        }
+        
+        if (x1 == x2 && x1 == x3){
+          this.match = true;
+          this.changeSquareWin([x,x+1,x+2]);
+          return
+        }
+      }
+  }
+
+  winDiagonal(sq1,sq2,sq3) {
+    let s1 = boardSquares[sq1].choice;
+    let s2 = boardSquares[sq2].choice;
+    let s3 = boardSquares[sq3].choice;
+    if (s1 == s2 && s1 == s3){
+        this.match = true;
+        this.changeSquareWin([sq1,sq2,sq3]);
+        return
+      }
+    
   }
 
   //Checks whether the game ended in a draw
@@ -133,15 +133,11 @@ class BoardSquares {
     }
   }
 
-  //Draws a line on canvas according to values passed in
-  drawLine(){
-    for (var index in this.draw){
-      this.draw[index] = this.fracToPixel(this.draw[index])
-    }
-    canvas.beginPath();
-    canvas.moveTo(this.draw["rightX"],this.draw["rightY"]);
-    canvas.lineTo(this.draw["leftX"],this.draw["leftY"]);
-    canvas.stroke();
+  //Adds a yellow color to the square where a match occured
+  changeSquareWin(squares){
+    squares.forEach((square)=>{
+      boardSquares[square].element.style.backgroundColor = "#F7DC6F";
+    });
   }
 
   //Changes the text on the square
@@ -175,73 +171,36 @@ function resetGame() {
   });
 }
 
-//––––––––– Function for adding all the squares onto the Board ––––––––
+//––––––––– TODO: Function for adding all the squares onto the Board ––––––––
 //Adds boardsquare divs as well as the canvas div following all squares
 function generateHTMLBoardSquares(){
   const boardElement = document.getElementById('gameboard');
-  htmlChange = ''
+  sqrHtml = ''
   for (var i = 0; i<9;i++) {
-    htmlChange += `<div class="col-4 board-square ">
+    sqrHtml += `<div class="col-4 board-square ">
                     <div class="face-container">
                       <div class="facedown text-center">
                       </div>
                     </div>
                   </div>`
   }
-  htmlChange += `<canvas id="myCanvas" hidden></canvas>`
-  boardElement.innerHTML = htmlChange;
-
+  sqrHtml += `<canvas id="myCanvas" hidden></canvas>`
+  boardElement.innerHTML = sqrHtml;
 }
 
-//Creates a canvas sizing it depending on the window size
-//returns the canvas HTML as well as the canvas object
-function createCanvas() {
-  var c = document.getElementById("myCanvas");
-  if (window.innerWidth < 400){
-    c.width = 300;
-    c.height = 300;
-  }
-  else{
-    c.width = 370;
-    c.height = 370;
-  }
-  canvas = c.getContext("2d");
-  canvas.lineWidth = 6;
-  return [c, canvas]
-}
 
 //calls the generate squares function, creates a canvas, pushes each square to the boardsuares array, returns the canvas
-function setupGame(){
+function setupGame() {
   generateHTMLBoardSquares();
-  var [c,canvas] = createCanvas();
-
 
   const squareElements = document.getElementsByClassName("board-square");
 
-  for (var i = 0; i<squareElements.length; i++) {
+  for (var i = 0; i < squareElements.length; i++) {
     const element = squareElements[i];
     const square = new BoardSquares(element);
     boardSquares.push(square);
   }
-  return [c,canvas]
 }
 
-/*
-//Resizes the size of the canvas whenever the window width become smaller than 400px
-//Whenever the canvas size changes, the canvas clears
-setInterval(function(){
-  window.onresize = function(){
-    if (window.innerWidth < 400){
-      c.width = 300;
-      c.height = 300;
-    }
-    else{
-      c.width = 370;
-      c.height = 370;
-    }
-  }
-}, 100);
-*/
-
-//starts the game, also allows the canvas HTML and the canvas object to be a global variable
-var [c,canvas] = setupGame();
+// Launch game
+setupGame();
