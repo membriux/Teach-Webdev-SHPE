@@ -18,7 +18,7 @@ class BoardSquares {
     this.element.addEventListener("click", this, false);
     this.match = false;
     this.choice = null;
-    this.element.style.fontFamily = "Manjari"
+    this.element.style.fontFamily = "Manjari";
   }
 
   //Restarts the game
@@ -39,7 +39,6 @@ class BoardSquares {
   checkForWinner(){
     if (turn >= 4) {
       var x;
-
       if (this.choice == "x") {
         canvas.strokeStyle = "#E93636";
       }
@@ -53,7 +52,13 @@ class BoardSquares {
         if (boardSquares[x].choice ==
           this.choice && boardSquares[x+1].choice == this.choice && boardSquares[x+2].choice == this.choice) {
           this.match = true;
-          this.drawLine([.11,0],[.14,.333],[.89,0], [.14,.333],i)
+          this.draw = {
+            "rightX": .11,
+            "rightY": .14+(i)*(.333),
+            "leftX": .89,
+            "leftY": .14+(i)*(.333)
+          };
+          this.drawLine();
         }
       }
 
@@ -61,18 +66,36 @@ class BoardSquares {
         if (boardSquares[i].choice ==
           this.choice && boardSquares[i+3].choice == this.choice && boardSquares[i+6].choice == this.choice) {
           this.match = true;
-          this.drawLine([.168,.333],[.064,0],[.168,.333],[.89,0],i)
+          this.draw = {
+            "rightX": .168+(i)*(.333),
+            "rightY": .064,
+            "leftX": .168+(i)*(.333),
+            "leftY": .89
+          };
+          this.drawLine();
         }
       }
 
       if (boardSquares[0].choice == this.choice && boardSquares[4].choice == this.choice && boardSquares[8].choice == this.choice){
         this.match = true;
-        this.drawLine([.108,0],[.067,0],[.897,0],[.883,0],0)
+        this.draw = {
+          "rightX": .108,
+          "rightY": .067,
+          "leftX": .897,
+          "leftY": .883
+        };
+        this.drawLine();
       }
 
       else if (boardSquares[2].choice == this.choice && boardSquares[4].choice == this.choice && boardSquares[6].choice == this.choice){
         this.match = true;
-        this.drawLine([.897,0],[.067,0],[.108,0],[.883,0],0)
+        this.draw = {
+          "rightX": .897,
+          "rightY": .067,
+          "leftX": .108,
+          "leftY": .883
+        }
+        this.drawLine()
       }
 
       if (this.match) {
@@ -111,10 +134,13 @@ class BoardSquares {
   }
 
   //Draws a line on canvas according to values passed in
-  drawLine(rightX,rightY,leftX,leftY,i){
+  drawLine(){
+    for (var index in this.draw){
+      this.draw[index] = this.fracToPixel(this.draw[index])
+    }
     canvas.beginPath();
-    canvas.moveTo(this.fracToPixel(rightX[0]+(i)*(rightX[1])),this.fracToPixel(rightY[0]+(i)*(rightY[1])));
-    canvas.lineTo(this.fracToPixel(leftX[0]+(i)*(leftX[1])),this.fracToPixel(leftY[0]+(i)*(leftY[1])));
+    canvas.moveTo(this.draw["rightX"],this.draw["rightY"]);
+    canvas.lineTo(this.draw["leftX"],this.draw["leftY"]);
     canvas.stroke();
   }
 
@@ -181,7 +207,6 @@ function createCanvas() {
   }
   canvas = c.getContext("2d");
   canvas.lineWidth = 6;
-  console.log(c,canvas)
   return [c, canvas]
 }
 
