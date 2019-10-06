@@ -17,18 +17,21 @@ router.get('/new', function(req, res, next) {
   res.render('items/new');
 });
 
+router.get('/:id', function(req,res,next){
+  Item.findById(req.params.id, function(err, item){
+    if(err){console.log(err);}
+    res.render('items/show',{item:item, itemid:req.params.id});
+  });
+});
 
 router.post('/', (req, res, next) => {
-
+//new items
   const item = new Item();
 
   item.name = req.body.name;
   item.description = req.body.description.split('\r\n');
   item.price = req.body.price;
   item.stock = req.body.stock;
-
-
-
 
   if (req.files) {
     var images = req.files.img;
@@ -51,17 +54,15 @@ router.post('/', (req, res, next) => {
         if(err) {console.log(err)};
       });
     }
-}
-
-
+  }
 
   item.save(function(err, item){
       if(err) { console.log(err)};
       return res.redirect('items/');
   });
-
-
-
 });
+
+
+
 
 module.exports = router;
