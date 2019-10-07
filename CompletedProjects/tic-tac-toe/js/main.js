@@ -81,10 +81,24 @@ class BoardSquares {
     this.element.style.fontFamily = "Manjari";
   }
 
-  /*
-  Checks every single possiblilty for a win whenever there have been more then 4 turn taken
-  Calls drawLine function to draw a line
-  */
+
+// ––––––– TODO: CHANGE TEXT/COLOR OF CURRENT PLAYER
+// Changes the text on the square
+  selectSquare(currPlayer, color,nxtPlayer ){
+    this.element.querySelector(".face-container").querySelector(".facedown").innerHTML = '<p>'+currPlayer.toUpperCase()+'</p>';
+    this.element.querySelector(".face-container").querySelector(".facedown").style.color = color;
+    this.choice = currPlayer;
+    this.checkForWinner();
+    this.checkForDraw();
+    player = nxtPlayer
+    turn ++;
+  }
+
+
+
+//  –––––– TODO: Check For winner functionality
+//Checks every single possiblilty for a win whenever there have been more then 4 turn taken
+//Calls drawLine function to draw a line
   checkForWinner(){
     if (turn >= 4) {
       var x;
@@ -100,10 +114,9 @@ class BoardSquares {
     }
   }
 
-  /* TODO:
-    Check all the sides (i.e. Horizontal, vertical, diagonal)
-    to see if any of the players won already
-  */
+  // ––––––– TODO: CHECK SIDES FUNCTION
+  //    Check all the sides (i.e. Horizontal, vertical, diagonal)
+  //    to see if any of the players won already
   checkSides(){
     let sides = [[0,3,6], [1,4,7], [2,5,8], // Vertical Check
                  [0,1,2], [3,4,5], [6,7,8], // Horizontal check
@@ -127,9 +140,8 @@ class BoardSquares {
 
   }
 
-  /* TODO: Check for Draw
-  Checks whether the game ended in a draw
-  */
+ // ––––––– TODO: CHECK FOR DRAW
+ // Checks whether the game ended in a draw
   checkForDraw() {
     if (turn == 8 && this.match == false) {
       document.getElementById("winner").innerHTML = "The game ended in a draw";
@@ -138,7 +150,8 @@ class BoardSquares {
     }
   }
 
-  //Handles all events that take place on each square
+// ––––––– TODO: HANDLE CLICK EVENT ON THE SQUARES
+// Handles all events that take place on each square
   handleEvent(event) {
     switch (event.type) {
 
@@ -155,22 +168,12 @@ class BoardSquares {
     }
   }
 
-  //Adds a yellow color to the square where a match occured
+// ––––––– TODO: CHANGE COLOR AFTER A PLAYER WINS
+// Adds a yellow color to the square where a match occured
   changeSquareWin(squares){
     squares.forEach((square)=>{
       boardSquares[square].element.style.backgroundColor = "#F7DC6F";
     });
-  }
-
-  // Changes the text on the square
-  selectSquare(currPlayer, color,nxtPlayer ){
-    this.element.querySelector(".face-container").querySelector(".facedown").innerHTML = '<p>'+currPlayer.toUpperCase()+'</p>';
-    this.element.querySelector(".face-container").querySelector(".facedown").style.color = color;
-    this.choice = currPlayer;
-    this.checkForWinner();
-    this.checkForDraw();
-    player = nxtPlayer
-    turn ++;
   }
 
   //Restarts the game
