@@ -8,7 +8,7 @@
 }
 
 .board-square {
-  border: 2px solid rgb(43, 43, 43);
+  border: 1px solid rgb(43, 43, 43);
   height: 33%;
   width: 33%;
   padding: 0;
@@ -16,7 +16,6 @@
 }
 
 .face-container {
-  background-color: lightgray;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -29,7 +28,7 @@
 }
 
 .facedown p{
-  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 84px;
 }
 
@@ -47,6 +46,11 @@
 }
 #container canvas, #myCanvas {
   position: absolute;
+}
+
+#winner {
+  font-size: 24px;
+  color: #1ABC9C;
 }
 
 @media(max-width: 400px){
