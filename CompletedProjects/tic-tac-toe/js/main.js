@@ -1,14 +1,4 @@
 
-/*
-Order:
-- Let/Var variables
-- BoardSquares class
-- Setup functions
-- Game logic
-- SetupGame() call
-*/
-
-
 //Board Squares will be stored in an array
 const boardSquares = []
 
@@ -49,7 +39,6 @@ function generateHTMLBoardSquares(){
                     </div>
                   </div>`
   }
-  sqrHtml += `<canvas id="myCanvas" hidden></canvas>`
   boardElement.innerHTML = sqrHtml;
 }
 
@@ -57,7 +46,7 @@ function generateHTMLBoardSquares(){
 // Resets all the board squares of the game
 function resetGame() {
   boardSquares.forEach((square)=> {
-    square.reset()
+    square.reset();
   });
 }
 
@@ -82,15 +71,14 @@ class BoardSquares {
   }
 
 
-// ––––––– TODO: CHANGE TEXT/COLOR OF CURRENT PLAYER
-// Changes the text on the square
+// Adds the players move (either X or O) when a square is clicked
   selectSquare(currPlayer, color,nxtPlayer ){
     this.element.querySelector(".face-container").querySelector(".facedown").innerHTML = '<p>'+currPlayer.toUpperCase()+'</p>';
     this.element.querySelector(".face-container").querySelector(".facedown").style.color = color;
     this.choice = currPlayer;
     this.checkForWinner();
     this.checkForDraw();
-    player = nxtPlayer
+    player = nxtPlayer;
     turn ++;
   }
 
@@ -100,17 +88,14 @@ class BoardSquares {
 //Checks every single possiblilty for a win whenever there have been more then 4 turn taken
 //Calls drawLine function to draw a line
   checkForWinner(){
-    if (turn >= 4) {
-      var x;
 
-      // Check rows and columns
-      this.checkSides()
+  // Check rows and columns
+    this.checkSides()
 
-      if (this.match) {
+    if (this.match) {
         document.getElementById("winner").innerHTML = "Winner is: " + player.toUpperCase();
         document.getElementById("reset-button").disabled = false;
         running = false;
-      }
     }
   }
 
@@ -180,13 +165,12 @@ class BoardSquares {
   reset() {
     this.choice = null;
     this.match = false
-    this.element.querySelector(".face-container").querySelector(".facedown").innerHTML = '';
     this.element.style.backgroundColor = "#fff";
-    running = true;
-    player = "x";
+    this.element.querySelector(".face-container").querySelector(".facedown").innerHTML = '';
     document.getElementById("winner").innerHTML = "<br>";
     document.getElementById("reset-button").disabled = true;
-    document.getElementById("myCanvas").hidden = true;
+    running = true;
+    player = "x";
   }
 
 }
