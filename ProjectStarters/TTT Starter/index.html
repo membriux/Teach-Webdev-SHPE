@@ -9,6 +9,7 @@
 <!-- Style sheet from Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+  <!-- Change Title Text -->
   <title>Tic-Tac-Toe</title>
 
   <!-- Custom StyleSheet -->
@@ -19,17 +20,16 @@
 
   <body>
 
-    <!-- Title/winner  of the game -->
+    <!-- Title/winner info -->
     <div class="game_info">
         <p class="text-center" id="header">Tic-Tac-Toe</p>
 
-        <!-- TODO: Update winner label after game ends using JS  -->
+        <!-- Winner label, change after finished game -->
         <p id="winner" class="text-center"><br></p>
     </div>
 
 
-
-    <!-- Main board of game class board (customly made) -->
+    <!-- Game Board -->
     <div class="container board">
       <div class="row">
         <div class="col-12">
@@ -39,8 +39,7 @@
             <!-- TODO: Add Squares using JS -->
             <div class="row" id="gameboard">
 
-
-                <!-- SAMPLE SQUARE -->
+                <!-- REMOVE LATER -->
                 <div class="col-4 board-square ">
                     <div class="face-container">
                       <div class="facedown text-center">
@@ -48,20 +47,15 @@
                     </div>
                   </div>
 
+
             </div>
           </div>
         </div>
 
-
-
-
-        <!-- Reset button -->
+        <!-- TODO: Add reset button -->
         <div class="col-12 text-center">
           <input  id="reset-button" class="btn btn-primary btn-block" type="reset" value="Restart Game" disabled>
         </div>
-
-
-
 
 
       </div>
