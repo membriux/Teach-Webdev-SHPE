@@ -6,7 +6,7 @@ const ItemSchema = new Schema({
   description: {type:String, required:true},
   location: {type:String, required:true},
   price: {type:Number, required:true},
-  img: {type:String, required:true},
+  img: {data:Buffer, contentType:String},
 
 });
 
