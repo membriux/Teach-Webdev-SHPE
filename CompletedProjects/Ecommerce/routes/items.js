@@ -24,37 +24,10 @@ router.get('/:id', function(req,res,next){
   });
 });
 
+
 router.post('/', (req, res, next) => {
-//new items
-  const item = new Item();
-
-  item.name = req.body.name;
-  item.description = req.body.description.split('\r\n');
-  item.price = req.body.price;
-  item.stock = req.body.stock;
-
-  if (req.files) {
-    var images = req.files.img;
-    if(Array.isArray(images)){
-      for(var i = 0; i < images.length; i++){
-
-        var itemImage = images[i];
-        item.img.push(itemImage.name);
-
-        itemImage.mv('./public/images/'+itemImage.name, function(err){
-          if(err) {console.log(err)};
-        });
-
-      }
-    }else{
-
-      item.img.push(images.name);
-
-      images.mv('./public/images/'+images.name, function(err){
-        if(err) {console.log(err)};
-      });
-    }
-  }
+//add new items
+  const item = new Item(req.body);
 
   item.save(function(err, item){
       if(err) { console.log(err)};
