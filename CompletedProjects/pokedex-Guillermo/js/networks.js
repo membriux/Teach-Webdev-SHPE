@@ -1,10 +1,15 @@
 class Networks {
 
+
+    // ––––––––– TODO:
+
+    // ––––––––– TODO: Get JSON data from internet
     static getJSON(callback) {
 
         var xobj = new XMLHttpRequest();
         xobj.overrideMimeType('application/json');
 
+        
         xobj.open('GET', 'https://api.myjson.com/bins/6vdpy', true); // Replace 'my_data' with the path to your file
 
         xobj.onreadystatechange = function() {
@@ -19,6 +24,7 @@ class Networks {
     }
 
 
+    // ––––––––– TODO: Retrieve all pokemon data and add to HTML
     static fetchAllPokemon() {
         this.getJSON(function(response) {
             // Parse JSON string into object
@@ -40,14 +46,17 @@ class Networks {
         });
     }
 
+    // ––––––––– TODO: Fetch specific pokemon that was selected and display
+    //                 it's information
     static fetchPokemonDetails(pokemonId) {
+        console.log('fetching');
         this.getJSON(function(response) {
             // Parse JSON string into object
             var actual_JSON = JSON.parse(response);
             hideLoading();
             let pokemon = actual_JSON[pokemonId - 1]; // Arrays are 0 based, so we must subtract 1 from id.
-            console.log(pokemon)
-            loadPokemon(
+            // console.log(pokemon)
+            addPokemonHtml(
                 pokemon.name.english,
                 pokemon.id,
                 createTypeLabels(pokemon.type),
@@ -56,6 +65,7 @@ class Networks {
         });
     }
 }
+
 
 // After Data has been loaded, stop showing the loading animation
 function hideLoading() {

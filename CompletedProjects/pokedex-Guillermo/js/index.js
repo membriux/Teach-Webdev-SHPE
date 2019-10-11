@@ -2,6 +2,8 @@
 let row = document.getElementsByClassName('row')[0];
 
 // Add html data to main page fetched from JSON file
+// ––––––––– EXPLAIN: how to use variables in strings for auto-generated
+//                    html data 
 function addPokemonHtml(name, id, types) {
 
     row.innerHTML +=
@@ -23,8 +25,6 @@ function addPokemonHtml(name, id, types) {
             </div> \
         </div>';
 }
-
-
 
 // Get all pokemon data from JSON file
 function loadPokemon() {

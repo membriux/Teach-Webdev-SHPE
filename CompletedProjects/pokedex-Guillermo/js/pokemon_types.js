@@ -1,3 +1,6 @@
+
+
+// EXPLAIN THE MAPPING BEHIND THE POKEMON
 //Javascript object to for pokemon types
 let typeMappings = {
     Normal: 'type-normal',

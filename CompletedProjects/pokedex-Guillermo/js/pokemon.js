@@ -1,9 +1,13 @@
 let row = document.getElementsByClassName('row')[0];
 
+
+// ––––––––– TODO: GET url parameters that are passed. This is the main method
+//                that websites use to track specific data of user
 let urlParams = new URLSearchParams(window.location.search);
 let pokemonId = urlParams.get('id');
 
-
+// ––––––––– EXPLAIN: how to use variables in strings for auto-generated
+//                    html data
 function addPokemonHtml(name, id, types, stats) {
     row.innerHTML +=
         `<div class="col-md-4 col-sm-6 col-xs-12"> \
@@ -77,18 +81,6 @@ function addPokemonHtml(name, id, types, stats) {
                             </div>
                         </div> \
                       </div>`;
-}
-
-function createTypeLabels(types) {
-    let result = [];
-    for (var i = 0; i < types.length; i++) {
-        result.push(
-            `<span class="badge ${typeMappings[types[i]]} mr-1">${
-                types[i]
-            }</span>`
-        );
-    }
-    return result;
 }
 
 // Get all pokemon data from JSON file
