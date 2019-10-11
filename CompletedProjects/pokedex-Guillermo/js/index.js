@@ -28,7 +28,7 @@ function loadPokemon(name, id, types) {
     row.innerHTML +=
         `<div class="col-md-4 col-sm-6 col-xs-12 bottom"> \
         <a href="./pokemon.html?id=${id}"> \
-        <div class="jumbotron"> \
+        <div class="jumbotron pokemon"> \
             <img \
                 src="./Database/thumbnails/${id}.png" \
                 class="card-img rounded" \
@@ -64,7 +64,7 @@ function loadJSON(callback) {
 
     xobj.overrideMimeType('application/json');
 
-    xobj.open('GET', './Database/pokedex.json', true); // Replace 'my_data' with the path to your file
+    xobj.open('GET', 'https://api.myjson.com/bins/6vdpy?fbclid=IwAR14beLfNHxMLA1GZcxswPSuMNI96Ix8xH65y5FylHu9n76ZUxQmcMr67pU', true); // Replace 'my_data' with the path to your file
 
     xobj.onreadystatechange = function() {
         if (xobj.readyState == 4 && xobj.status == '200') {

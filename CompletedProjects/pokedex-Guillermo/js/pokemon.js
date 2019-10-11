@@ -28,7 +28,7 @@ let typeMappings = {
 function loadPokemon(name, id, types, stats) {
     row.innerHTML +=
         `<div class="col-md-4 col-sm-6 col-xs-12"> \
-        <div class="jumbotron"> \
+        <div class="jumbotron pokemon-details"> \
             <img \
                 src="./Database/thumbnails/${id}.png" \
                 class="card-img rounded" \
@@ -46,7 +46,7 @@ function loadPokemon(name, id, types, stats) {
                 </div>';
 
     row.innerHTML += `<div class="col-md-8 col-sm-6 col-xs-12"> \
-                        <div class="jumbotron"> \
+                        <div class="jumbotron pokemon-details"> \
                             <h3>Stats</h3>
                             <hr> \
                             <p>HP</p>
@@ -118,7 +118,7 @@ function loadJSON(callback) {
 
     xobj.overrideMimeType('application/json');
 
-    xobj.open('GET', './Database/pokedex.json', true); // Replace 'my_data' with the path to your file
+    xobj.open('GET', 'https://api.myjson.com/bins/6vdpy?fbclid=IwAR14beLfNHxMLA1GZcxswPSuMNI96Ix8xH65y5FylHu9n76ZUxQmcMr67pU', true); // Replace 'my_data' with the path to your file
 
     xobj.onreadystatechange = function() {
         if (xobj.readyState == 4 && xobj.status == '200') {
