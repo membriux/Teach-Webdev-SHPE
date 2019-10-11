@@ -25,49 +25,51 @@ let typeMappings = {
 
 //
 function loadPokemon(name, id, types) {
+
     row.innerHTML +=
         `<div class="col-md-4 col-sm-6 col-xs-12 bottom"> \
-        <a href="./pokemon.html?id=${id}"> \
-        <div class="jumbotron"> \
-            <img \
-                src="./Database/thumbnails/${id}.png" \
-                class="card-img rounded" \
-                alt="..." \
-            /> \
-            <div class=""> \
-                <p>#${
-                    id < 10 ? '00' + id : id > 10 && id < 100 ? '0' + id : id
-                }</p>
-                <p class="">${name}</p> \
-                <hr>` +
-        types.map(type => type).join('') +
-        '</div> \
-        </a> \
-                </div> \
-                </div>';
+            <a href="./pokemon.html?id=${id}"> \
+            <div class="jumbotron"> \
+                <img \
+                    src="./Database/thumbnails/${id}.png" \
+                    class="card-img rounded" \
+                    alt="..." \
+                /> \
+                <div class=""> \
+                    <p>#${id}</p>
+                    <p class="">${name}</p> \
+                    <hr>` +
+                    types.join('') + // Need to join this html together as a string, since its an array.
+                '</div> \
+                </a> \
+            </div> \
+        </div>';
 }
 
 function createTypeLabels(types) {
-    let result = [];
+    let labels = [];
     for (var i = 0; i < types.length; i++) {
-        result.push(
+        labels.push(
             `<span class="badge ${typeMappings[types[i]]} mr-1">${
                 types[i]
             }</span>`
         );
     }
-    return result;
+    return labels;
 }
 
 function loadJSON(callback) {
-    var xobj = new XMLHttpRequest();
+    //
+    var xobj = new XMLHttpRequest(); 
 
-    xobj.overrideMimeType('application/json');
+    xobj.overrideMimeType('application/json'); 
 
     xobj.open('GET', './Database/pokedex.json', true); // Replace 'my_data' with the path to your file
 
     xobj.onreadystatechange = function() {
-        if (xobj.readyState == 4 && xobj.status == '200') {
+        // readyState === 4, operation complete. https://stackoverflow.com/questions/30522565/what-is-meaning-of-xhr-readystate-4
+        // status === 200, request has succeeded. https://httpstatuses.com/200
+        if (xobj.readyState === 4 && xobj.status === 200) {
             // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
             callback(xobj.responseText);
         }
@@ -76,6 +78,7 @@ function loadJSON(callback) {
 }
 
 function hideLoading() {
+    //After Data has been loaded, stop showing the loading animation
     let loading = document.getElementsByClassName('loading')[0];
     loading.classList.add('hide-loading');
 }
@@ -84,13 +87,20 @@ function init() {
     loadJSON(function(response) {
         // Parse JSON string into object
         var actual_JSON = JSON.parse(response);
-        hideLoading();
+
+        hideLoading(); // Data has been loading, stop showing loading animation
+
         actual_JSON.map(pokemon => {
+            //Create type labels for pokemon
+            let pokemonLabels = createTypeLabels(pokemon.type)
+            
+            //Go through each pokemon, create a pokemon card, add card to html
             loadPokemon(
                 pokemon.name.english,
                 pokemon.id,
-                createTypeLabels(pokemon.type)
+                pokemonLabels
             );
+
         });
     });
 }
