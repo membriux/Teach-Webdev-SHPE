@@ -59,12 +59,11 @@ function createTypeLabels(types) {
 }
 
 function loadJSON(callback) {
-    //
+    
     var xobj = new XMLHttpRequest(); 
-
     xobj.overrideMimeType('application/json'); 
 
-    xobj.open('GET', './Database/pokedex.json', true); // Replace 'my_data' with the path to your file
+    xobj.open('GET', 'https://api.myjson.com/bins/6vdpy', true); // Replace 'my_data' with the path to your file
 
     xobj.onreadystatechange = function() {
         // readyState === 4, operation complete. https://stackoverflow.com/questions/30522565/what-is-meaning-of-xhr-readystate-4
@@ -74,7 +73,7 @@ function loadJSON(callback) {
             callback(xobj.responseText);
         }
     };
-    xobj.send(null);
+    xobj.send();
 }
 
 function hideLoading() {

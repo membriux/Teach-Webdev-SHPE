@@ -57,13 +57,12 @@ function loadPokemon(name, id, types, stats) {
                                 </div>
                             </div>
                             <p>Attack</p>
-                            
+
                             <div class="progress">
                                 <div class="progress-bar bg-success" style="width: ${
                                     stats.Attack
-                                }%" role="progressbar" aria-valuenow="${
-        stats.Attack
-    }" aria-valuemin="0" aria-valuemax="100"></div>
+                                }%" role="progressbar" aria-valuenow="${stats.Attack}" 
+                                aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <p>Defense</p>
                             <div class="progress">
@@ -118,7 +117,7 @@ function loadJSON(callback) {
 
     xobj.overrideMimeType('application/json');
 
-    xobj.open('GET', './Database/pokedex.json', true); // Replace 'my_data' with the path to your file
+    xobj.open('GET', 'https://api.myjson.com/bins/6vdpy', true); // Replace 'my_data' with the path to your file
 
     xobj.onreadystatechange = function() {
         if (xobj.readyState === 4 && xobj.status === 200) {
