@@ -1,5 +1,18 @@
-<h2>{{item.name}}</h2>
-
-{{#each item.img as |img|}}
-<img src="../images/{{img}}" alt="" width="250px" height="350px">
-{{/each}}
+<div class="fluid-container">
+  <div class="row">
+    <div class="col">
+      <div class="hero-image text-center">
+          <img src="data:{{item.img.contentType}};base64,{{item.img.data}}" alt="" >
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>{{item.name}}</h2>
+        <p>{{item.description}}</p>
+        <a href="#" class="btn btn-primary">Purchase</a>
+      </div>
+    </div>
+  </div>
+</div>

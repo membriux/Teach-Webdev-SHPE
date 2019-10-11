@@ -31,3 +31,14 @@ a {
 .nav-primary ul li a{
   color:white;
 }
+
+.hero-image{
+  width: 100%;
+  height: 70vh;
+  background-color: hsl(0,0%,10%);
+}
+
+.hero-image img{
+  max-width: 100%;
+  height: 100%;
+}

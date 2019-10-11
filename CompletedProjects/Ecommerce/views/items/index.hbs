@@ -3,20 +3,19 @@
     <div class="col">
 
 
+      <div class="card-columns">
         {{#each items as |item|}}
-        <div class="card-columns">
-          <div class="card">
-            <img src="data:{{item.img.contentType}};base64,{{item.img.data}}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{item.name}}</h5>
-              <p class="card-text">{{item.description}}</p>
+          <a href="/items/{{item.id}}">
+            <div class="card">
+              <img src="data:{{item.img.contentType}};base64,{{item.img.data}}" class="card-img-top" alt="">
+              <div class="card-body">
+                <h5 class="card-title">{{item.name}}</h5>
+                <p class="card-text">{{item.description}}</p>
+              </div>
             </div>
-          </div>
-        </div>
-
-      {{/each}}
-
-
+          </a>
+        {{/each}}
+      </div>
     </div>
   </div>
 </div>

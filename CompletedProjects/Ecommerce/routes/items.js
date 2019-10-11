@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
   Item.find({},  function(err, items) {
     if(err) {
       console.error(err);
-    } else {console.log(items);
+    } else {
       res.render('items/index', { items: items });
     }
   });
