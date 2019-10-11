@@ -3,29 +3,8 @@ let row = document.getElementsByClassName('row')[0];
 let urlParams = new URLSearchParams(window.location.search);
 let pokemonId = urlParams.get('id');
 
-//Javascript object to for pokemon types
-let typeMappings = {
-    Normal: 'type-normal',
-    Fire: 'type-fire',
-    Water: 'type-water',
-    Electric: 'type-electric',
-    Grass: 'type-grass',
-    Ice: 'type-ice',
-    Fighting: 'type-fighting',
-    Poison: 'type-poison',
-    Ground: 'type-ground',
-    Flying: 'type-flying',
-    Psychic: 'type-psychic',
-    Bug: 'type-bug',
-    Rock: 'type-rock',
-    Ghost: 'type-ghost',
-    Fairy: 'type-fairy',
-    Dragon: 'type-dragon',
-    Dark: 'type-dark',
-    Steel: 'type-steel'
-};
 
-function loadPokemon(name, id, types, stats) {
+function addPokemonHtml(name, id, types, stats) {
     row.innerHTML +=
         `<div class="col-md-4 col-sm-6 col-xs-12"> \
             <div class="jumbotron pokemon-details"> \
@@ -52,7 +31,7 @@ function loadPokemon(name, id, types, stats) {
                             <div class="progress">
                                 <div class="progress-bar bg-success" style="width: ${
                                     stats.HP
-                                }%" role="progressbar" aria-valuenow="${stats.HP}" 
+                                }%" role="progressbar" aria-valuenow="${stats.HP}"
                                 aria-valuemin="0" aria-valuemax="100">
                                 </div>
                             </div>
@@ -61,7 +40,7 @@ function loadPokemon(name, id, types, stats) {
                             <div class="progress">
                                 <div class="progress-bar bg-success" style="width: ${
                                     stats.Attack
-                                }%" role="progressbar" aria-valuenow="${stats.Attack}" 
+                                }%" role="progressbar" aria-valuenow="${stats.Attack}"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <p>Defense</p>
@@ -112,40 +91,13 @@ function createTypeLabels(types) {
     return result;
 }
 
-function loadJSON(callback) {
-    var xobj = new XMLHttpRequest();
-
-    xobj.overrideMimeType('application/json');
-
-    xobj.open('GET', 'https://api.myjson.com/bins/6vdpy', true); // Replace 'my_data' with the path to your file
-
-    xobj.onreadystatechange = function() {
-        if (xobj.readyState === 4 && xobj.status === 200) {
-            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-            callback(xobj.responseText);
-        }
-    };
-    xobj.send(null);
-}
-
-function hideLoading() {
-    let loading = document.getElementsByClassName('loading')[0];
-    loading.classList.add('hide-loading');
+// Get all pokemon data from JSON file
+function loadPokemon() {
+    Networks.fetchPokemonDetails(pokemonId);
 }
 
 function init() {
-    loadJSON(function(response) {
-        // Parse JSON string into object
-        var actual_JSON = JSON.parse(response);
-        hideLoading();
-        let pokemon = actual_JSON[pokemonId - 1]; // Arrays are 0 based, so we must subtract 1 from id.
-        loadPokemon(
-            pokemon.name.english,
-            pokemon.id,
-            createTypeLabels(pokemon.type),
-            pokemon.base
-        );
-    });
+    loadPokemon();
 }
 
 init();
