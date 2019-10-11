@@ -24,7 +24,7 @@ let typeMappings = {
 };
 
 //
-function loadPokemon(name, id, types) {
+function addPokemonHtml(name, id, types) {
 
     row.innerHTML +=
         `<div class="col-md-4 col-sm-6 col-xs-12 bottom"> \
@@ -82,26 +82,12 @@ function hideLoading() {
     loading.classList.add('hide-loading');
 }
 
+function loadPokemon() {
+    console.log(Networks.fetchPokemon())
+}
+
 function init() {
-    loadJSON(function(response) {
-        // Parse JSON string into object
-        var actual_JSON = JSON.parse(response);
-
-        hideLoading(); // Data has been loading, stop showing loading animation
-
-        actual_JSON.map(pokemon => {
-            //Create type labels for pokemon
-            let pokemonLabels = createTypeLabels(pokemon.type)
-            
-            //Go through each pokemon, create a pokemon card, add card to html
-            loadPokemon(
-                pokemon.name.english,
-                pokemon.id,
-                pokemonLabels
-            );
-
-        });
-    });
+    loadPokemon();
 }
 
 init();
