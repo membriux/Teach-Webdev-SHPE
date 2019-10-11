@@ -28,7 +28,7 @@ let typeMappings = {
 function loadPokemon(name, id, types, stats) {
     row.innerHTML +=
         `<div class="col-md-4 col-sm-6 col-xs-12"> \
-            <div class="jumbotron"> \
+            <div class="jumbotron pokemon-details"> \
                 <img \
                     src="./Database/thumbnails/${id}.png" \
                     class="card-img rounded" \

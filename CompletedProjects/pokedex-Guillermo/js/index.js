@@ -29,7 +29,7 @@ function loadPokemon(name, id, types) {
     row.innerHTML +=
         `<div class="col-md-4 col-sm-6 col-xs-12 bottom"> \
             <a href="./pokemon.html?id=${id}"> \
-            <div class="jumbotron"> \
+            <div class="jumbotron pokemon"> \
                 <img \
                     src="./Database/thumbnails/${id}.png" \
                     class="card-img rounded" \
