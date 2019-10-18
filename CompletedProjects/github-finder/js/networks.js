@@ -1,4 +1,5 @@
 class Network {
+    // STEP 1
     // Send GET request to retreive github users
     static searchUsers(username) {
         let result = null;
