@@ -8,10 +8,23 @@ class Network {
         });
     }
 
+    // STEP 3
+    // Send GET request to retreive single github user
     static getUser(username) {
         $.get(`https://api.github.com/users/${username}`, function(data) {
             // if success, populate user html
-            displaySingleUser(data.items);
+            displaySingleUser(data);
         });
+    }
+
+    // STEP 5
+    // Send GET request to retreive single user repos
+    static getUserRepos(username) {
+        $.get(
+            `https://api.github.com/users/${username}/repos?per_page=5`,
+            function(data) {
+                displayUserRepos(data);
+            }
+        );
     }
 }

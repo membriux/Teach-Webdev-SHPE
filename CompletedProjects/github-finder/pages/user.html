@@ -12,7 +12,7 @@
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
             crossorigin="anonymous"
         />
-        <link rel="stylesheet" href="./css/index.css" />
+        <link rel="stylesheet" href="../css/index.css" />
         <link rel="stylesheet" href="../css/user.css" />
     </head>
     <body>
@@ -42,7 +42,7 @@
             class="jumbotron"
             style="background-color: white; padding-top: 20px;"
         >
-            <div class="container">
+            <div class="container inline-block">
                 <a href="../index.html" class="btn btn-light p-2">
                     &larr; Back</a
                 >
@@ -53,19 +53,19 @@
                 <div class="row ">
                     <div class="col-md-6 text-center">
                         <img
-                            src="../me.jpg"
+                            src=""
                             class="rounded-circle"
                             alt=""
                             width="150"
                             height="150"
                         />
-                        <h1>Guillermo Hernandez</h1>
-                        <p>Location: Irvine, California</p>
+                        <h1 id="name"></h1>
+                        <p id="location"></p>
                     </div>
                     <div class="col-md-6">
                         <h3>Bio</h3>
-                        <p>Little description of my profile</p>
-                        <a href="#">
+                        <p id="desc"></p>
+                        <a href="#" class="github-profile">
                             <button type="button" class="btn btn-dark">
                                 Visit GitHub Profile
                             </button>
@@ -73,18 +73,38 @@
                         <br />
                         <br />
                         <ul>
-                            <li><strong>Username: </strong>Guillermo</li>
-                            <li><strong>Company: </strong>UCI</li>
-                            <li><strong>Website: </strong>link</li>
+                            <li>
+                                <strong>Username: </strong
+                                ><span id="username"></span>
+                            </li>
+                            <li>
+                                <strong>Company: </strong
+                                ><span id="company"></span>
+                            </li>
+                            <li>
+                                <strong>Website: </strong><span id="web"></span>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <span class="badge badge-danger">Danger</span>
-                        <span class="badge badge-success">Success</span>
-                        <span class="badge badge-light">Light</span>
-                        <span class="badge badge-dark">Dark</span>
+                        <span
+                            id="followers"
+                            class="badge badge-danger py-2 px-2"
+                        ></span>
+                        <span
+                            id="following"
+                            class="badge badge-success py-2 px-2"
+                        ></span>
+                        <span
+                            id="repos"
+                            class="badge badge-light py-2 px-2"
+                        ></span>
+                        <span
+                            id="gists"
+                            class="badge badge-dark py-2 px-2"
+                        ></span>
                     </div>
                 </div>
                 <div class="row repos"></div>
@@ -107,6 +127,7 @@
             crossorigin="anonymous"
         ></script>
 
-        <script src="./js/networks.js"></script>
+        <script src="../js/networks.js"></script>
+        <script src="../js/user.js"></script>
     </body>
 </html>
