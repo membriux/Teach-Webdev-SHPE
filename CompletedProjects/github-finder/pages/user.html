@@ -13,6 +13,7 @@
             crossorigin="anonymous"
         />
         <link rel="stylesheet" href="./css/index.css" />
+        <link rel="stylesheet" href="../css/user.css" />
     </head>
     <body>
         <!-- nav -->
@@ -49,7 +50,44 @@
 
             <div class="container">
                 <!-- Github accounts -->
-                <div class="row accounts d-flex justify-content-around"></div>
+                <div class="row ">
+                    <div class="col-md-6 text-center">
+                        <img
+                            src="../me.jpg"
+                            class="rounded-circle"
+                            alt=""
+                            width="150"
+                            height="150"
+                        />
+                        <h1>Guillermo Hernandez</h1>
+                        <p>Location: Irvine, California</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Bio</h3>
+                        <p>Little description of my profile</p>
+                        <a href="#">
+                            <button type="button" class="btn btn-dark">
+                                Visit GitHub Profile
+                            </button>
+                        </a>
+                        <br />
+                        <br />
+                        <ul>
+                            <li><strong>Username: </strong>Guillermo</li>
+                            <li><strong>Company: </strong>UCI</li>
+                            <li><strong>Website: </strong>link</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <span class="badge badge-danger">Danger</span>
+                        <span class="badge badge-success">Success</span>
+                        <span class="badge badge-light">Light</span>
+                        <span class="badge badge-dark">Dark</span>
+                    </div>
+                </div>
+                <div class="row repos"></div>
             </div>
         </div>
 
