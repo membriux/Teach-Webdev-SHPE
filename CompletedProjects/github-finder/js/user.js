@@ -36,7 +36,10 @@ function displaySingleUser(user) {
 // STEP 6
 // Display all the repos as html
 function displayUserRepos(repos) {
-    console.log(repos);
+    repos.map(repo => {
+        let html = `<div class='col-md-12'><h3>${repo.name}</h3></div>`;
+        $('.repos').append(html);
+    });
 }
 
 // A $( document ).ready() block.
