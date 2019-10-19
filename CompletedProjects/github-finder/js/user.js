@@ -37,7 +37,8 @@ function displaySingleUser(user) {
 // Display all the repos as html
 function displayUserRepos(repos) {
     repos.map(repo => {
-        let html = `<div class='col-md-12'><h3>${repo.name}</h3></div>`;
+        console.log(repo);
+        let html = `<div class='col-md-12 border py-2 px-2 mr-2'><a href=${repo.html_url}><h3>${repo.name}</h3></a></div><br>`;
         $('.repos').append(html);
     });
 }
