@@ -48,4 +48,6 @@ function displayUserRepos(repos) {
 $(document).ready(function() {
     Network.getUser(user);
     Network.getUserRepos(user);
+    $('.loader').hide();
+    $('.container').show();
 });

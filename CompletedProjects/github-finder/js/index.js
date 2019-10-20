@@ -2,16 +2,20 @@
 $('#search').submit(function(event) {
     event.preventDefault();
     Network.searchUsers(event.target.children[0].value);
+    //clear form
+    $('#search-text').val('');
 });
 
 // STEP 2
 // Populate html with users
 function displayUsers(users) {
-    let html = '';
+    let html = document.getElementsByClassName('accounts')[0];
+    $('.accounts').empty();
     for (var i = 0; i < users.length; i++) {
         let { login, avatar_url } = users[i];
-        html += `<div class="col-md-5 col-lg-4 col-sm-6">
-                    <div class="card" style="width: 18rem;">
+        html.innerHTML += `
+                <div class="col-md-4 col-sm-6 col-xs-12 pb-4 ">
+                    <div class="card " style="width: 18rem;">
                         <div class="card-body">
                             <div class="text-center">
                                 <img
@@ -37,6 +41,4 @@ function displayUsers(users) {
                     </div>
                 </div>`;
     }
-    //set the inner html of div accounts to html
-    $('.accounts').html(html);
 }

@@ -28,3 +28,9 @@ class Network {
         );
     }
 }
+
+// After Data has been loaded, stop showing the loading animation
+function hideLoading() {
+    let loading = document.getElementsByClassName('loading')[0];
+    loading.classList.add('hide-loading');
+}
