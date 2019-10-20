@@ -9,36 +9,42 @@ $('#search').submit(function(event) {
 // STEP 2
 // Populate html with users
 function displayUsers(users) {
-    let html = document.getElementsByClassName('accounts')[0];
-    $('.accounts').empty();
-    for (var i = 0; i < users.length; i++) {
-        let { login, avatar_url } = users[i];
-        html.innerHTML += `
-                <div class="col-md-4 col-sm-6 col-xs-12 pb-4 ">
-                    <div class="card " style="width: 18rem;">
+    let html = document.getElementById('decks');
+    $('#decks').empty();
+  
+    for (var i = 0; i < users.length; i = i + 3) {
+      var deck = document.createElement("div");
+      deck.setAttribute("class", "card-columns");      
+
+        for (var x = i; x < i + 3; x++) {
+          if (x < users.length - i) {
+            let { login, avatar_url } = users[x];
+            deck.innerHTML += `
+                    <div class="card text-center">
                         <div class="card-body">
-                            <div class="text-center">
-                                <img
-                                    src="${avatar_url}"
-                                    class="rounded-circle"
-                                    alt="..."
-                                    height="60px"
-                                    width="60px"
-                                />
-                            </div>
+                            <img
+                                src="${avatar_url}"
+                                class="rounded-circle"
+                                alt="..."
+                                height="60px"
+                                width="60px"
+                            />
                             <br />
-                            <div class="text-center">
-                                <h5 class="card-title text-center">
-                                    ${login}
-                                </h5>
-                                <a href='./pages/user.html?user=${login}'>
-                                <button type="button" class="btn btn-dark">
-                                    More
-                                </button>
-                                </a>
-                            </div>
+                              <h5 class="card-title">
+                                  ${login}
+                              </h5>
+                              <a href='./pages/user.html?user=${login}'>
+                              <button type="button" class="btn btn-dark">
+                                  More
+                              </button>
+                              </a>
                         </div>
-                    </div>
-                </div>`;
+                    </div>`;
+          }
+        }
+        console.log(deck)
+        html.appendChild(deck)
+
+        
     }
 }
