@@ -44,6 +44,19 @@ io.on('connection', function(socket) {
         console.log('user disconnected');
     });
 
+    //Someone is typing
+    socket.on('typing', data => {
+        socket.broadcast.emit('notifyTyping', {
+            user: data.user,
+            message: data.message
+        });
+    });
+
+    //when soemone stops typing
+    socket.on('stopTyping', () => {
+        socket.broadcast.emit('notifyStopTyping');
+    });
+
     socket.on('chat message', msg => {
         console.log('Message received: ' + msg);
 

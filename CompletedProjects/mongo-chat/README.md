@@ -58,3 +58,8 @@
 
     - under models, create the schema for a chat message
     - a chat contains a message, sender and a timestamp
+
+6. When user sends a chat save it in the database
+
+    - create public route to fetch all previous chat messages
+    - create a get request in the front end to fetch all messages

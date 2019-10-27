@@ -49,3 +49,27 @@ socket.on('received', data => {
             });
         });
 })();
+
+//is typing...
+
+let messageInput = document.getElementById('message');
+let typing = document.getElementById('typing');
+
+//isTyping event
+messageInput.addEventListener('keypress', () => {
+    socket.emit('typing', { user: 'Someone', message: 'is typing...' });
+});
+
+socket.on('notifyTyping', data => {
+    typing.innerText = data.user + ' ' + data.message;
+    console.log(data.user + data.message);
+});
+
+//stop typing
+messageInput.addEventListener('keyup', () => {
+    socket.emit('stopTyping', '');
+});
+
+socket.on('notifyStopTyping', () => {
+    typing.innerText = '';
+});
