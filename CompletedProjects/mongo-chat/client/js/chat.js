@@ -31,3 +31,21 @@ socket.on('received', data => {
     messages.appendChild(span).append('by ' + 'anonymous' + ': ' + 'just now');
     console.log('Hello bingo!');
 });
+
+(function() {
+    fetch('/chats')
+        .then(data => {
+            return data.json();
+        })
+        .then(json => {
+            json.map(data => {
+                console.log(data);
+                let li = document.createElement('li');
+                let span = document.createElement('span');
+                messages.appendChild(li).append(data.message);
+                messages
+                    .appendChild(span)
+                    .append('by ' + data.sender + ': ' + data.createdAt);
+            });
+        });
+})();
