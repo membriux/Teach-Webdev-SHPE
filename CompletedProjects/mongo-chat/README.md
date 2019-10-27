@@ -33,7 +33,28 @@
 
 ## Steps
 
--   npm install ( get all node modules for project )
--   set up express server
-    -   create app js
-    -   start with basic Socket.io config
+1. npm install ( get all node modules for project )
+
+    - This is a must do
+
+2. set up express server - create app js - start with basic Socket.io config
+
+    - Also a must do
+
+3. basic chat feature
+
+    - make sure you start socket io in both client and server
+    - add ability to detect user connection
+    - user should be able to send message and backend should receive it
+    - backend should broadcast message to others in group chat
+
+4. start connecting database to backend
+
+    - start with dbconnection.js
+    - Should we let them create their own DB? it would be faster to use mine.
+    - if console gives no errors, we have connected succesfully
+
+5. Create Chat schema
+
+    - under models, create the schema for a chat message
+    - a chat contains a message, sender and a timestamp

@@ -18,16 +18,29 @@ app.use(bodyParser.json());
 //set the express.static middleware, serves our html
 app.use(express.static(__dirname + '/client'));
 
+//database connection
+const Chat = require('./models/Chat');
+const connect = require('./dbconnection');
+
 /*
     Socket.io event handling
+
+    ****************************************************************
+    * We will be making most of the changes in the functions below *
+    ****************************************************************
+
 */
 
 // io.on() takes an event name and a callback as parameters.
+
 io.on('connection', function(socket) {
     console.log('User connected');
 
     socket.on('chat message', msg => {
-        console.log(msg);
+        console.log('Message received: ' + msg);
+
+        //broadcast message to everyone in port:5000 except yourself.
+        socket.broadcast.emit('received', { message: msg });
     });
 });
 /*
