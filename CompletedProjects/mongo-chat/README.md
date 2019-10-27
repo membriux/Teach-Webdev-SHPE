@@ -17,6 +17,11 @@
 -   [Node & NPM](https://nodejs.org/en/)
     -   NPM will get installed along with Node.js
 
+### Install Postman
+
+-   [Postman](https://www.getpostman.com/)
+    -   Postman allows you to test your apis by sending any kind of request to any url.
+
 ## Node Modules
 
 -   express
@@ -24,3 +29,11 @@
 -   mongoose
 -   socket.io
 -   bluebird
+-   nodemon
+
+## Steps
+
+-   npm install ( get all node modules for project )
+-   set up express server
+    -   create app js
+    -   start with basic Socket.io config
