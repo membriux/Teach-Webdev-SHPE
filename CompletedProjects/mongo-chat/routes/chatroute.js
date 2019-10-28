@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const connect = require('../dbconnection');
-const Chats = require('./../models/Chat');
+const Chats = require('../models/Chat');
 
 const router = express.Router();
 
