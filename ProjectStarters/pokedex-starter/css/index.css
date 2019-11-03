@@ -1,0 +1,172 @@
+body {
+    background-color: #f4f4f4;
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* Get rid of anchor tag effect */
+a {
+    color: inherit;
+    outline: none;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.progress {
+    margin-bottom: 15px;
+}
+
+/* Pokemon details card */
+.pokemon-details {
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Add shadow to pokemon cards */
+.pokemon {
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    transition: all 0.3s ease-in-out;
+}
+
+ /* Animate pokemon cards box shadow when hovered  */
+
+.pokemon::after {
+  content: '';
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border-radius: 5px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.make-it-fast {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.make-it-fast::after {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.make-it-fast:hover::after {
+  opacity: 1;
+}
+
+.pokemon:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.box:hover::after {
+  opacity: 1;
+}
+
+
+/* Get rid of anchor tag effect */
+a:hover {
+    color: inherit;
+    outline: none;
+    text-decoration: none;
+}
+
+.hide-loading {
+    visibility: hidden;
+}
+
+.bottom {
+    padding-bottom: 2%;
+}
+
+.type-normal {
+    background-color: #a8a77a;
+}
+
+.type-fire {
+    background-color: #ee8130;
+}
+
+.type-water {
+    background-color: #6390f0;
+}
+
+.type-electric {
+    background-color: #f7d02c;
+}
+
+.type-grass {
+    background-color: #7ac74c;
+}
+
+.type-ice {
+    background-color: #96d9d6;
+}
+
+.type-fighting {
+    background-color: #c22e28;
+}
+
+.type-poison {
+    background-color: #a33ea1;
+}
+
+.type-ground {
+    background-color: #e2bf65;
+}
+
+.type-flying {
+    background-color: #a98ff3;
+}
+
+.type-psychic {
+    background-color: #f95587;
+}
+
+.type-bug {
+    background-color: #a6b91a;
+}
+
+.type-rock {
+    background-color: #b6a136;
+}
+
+.type-ghost {
+    background-color: #735797;
+}
+
+.type-fairy {
+    background-color: #d685ad;
+}
+
+.type-dragon {
+    background-color: #6f35fc;
+}
+
+.type-dark {
+    background-color: #705746;
+}
+
+.type-steel {
+    background-color: #b7b7ce;
+}
+
+/* Water:  6390F0
+Electric:  F7D02C
+Grass:  7AC74C
+Ice:  96D9D6
+Fighting:  C22E28
+Poison:  A33EA1
+Ground:  E2BF65
+Flying:  A98FF3
+Psychic:  F95587
+Bug:  A6B91A
+Rock:  B6A136
+Ghost:  735797
+Dragon:  6F35FC
+Dark:  705746
+Steel:  B7B7CE
+Fairy:  D685AD */
