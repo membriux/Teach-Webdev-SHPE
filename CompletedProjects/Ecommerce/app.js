@@ -50,7 +50,7 @@ app.use(function(err, req, res, next) {
 
 // ––––––– STEP 1: Initialize Database connection
 const mongoose = require('mongoose');
-const mongoURI = 'MONGO_URL';
+const mongoURI = 'DB_URL';
 
 mongoose.connect(mongoURI)
 mongoose.Promise = global.Promise;
