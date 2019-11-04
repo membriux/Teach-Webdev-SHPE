@@ -1,15 +1,9 @@
-
 <div class="container">
   <div class="row">
     <div class="col">
 
       <form action="/items/purchase" method="post"  enctype="multipart/form-data">
-        <legend>New Item</legend>
-
-        <div class="form-group">
-          <label for="item-name">Item name</label>
-          <input type="text" name="name" class="form-control" id="item-name" placeholder="Name">
-        </div>
+        <legend>Payment Info</legend>
 
         <div class="form-group">
           <label for="name">Full Name</label>
@@ -17,8 +11,18 @@
         </div>
 
         <div class="form-group">
-          <label for="item-location">Shipping Address</label>
+          <label for="name">Phone Number</label>
+          <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone Number">
+        </div>
+
+        <div class="form-group">
+          <label for="address">Shipping Address</label>
           <input type="text" name="address" class="form-control" id="address" placeholder="Shipping Address">
+        </div>
+
+        <div class="form-group">
+          <label for="card-info">Card Number</label>
+          <input type="number" name="card-info" value="">
         </div>
 
         <div class="form-group">

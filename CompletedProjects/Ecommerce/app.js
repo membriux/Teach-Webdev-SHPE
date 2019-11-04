@@ -1,3 +1,5 @@
+
+// Requirements for uploading images to database
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -6,7 +8,7 @@ var logger = require('morgan');
 var multer = require('multer');
 var fs = require('fs');
 
-
+// Routes
 var indexRouter = require('./routes/index');
 var itemsRouter = require('./routes/items');
 var usersRouter = require('./routes/users');
@@ -44,9 +46,11 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+
+// ––––––– STEP 1: Initialize Database connection
 const mongoose = require('mongoose');
 const mongoURI = 'mongodb+srv://waldo:Ec0mM3rcE@cluster0-xmzpt.mongodb.net/test?retryWrites=true&w=majority';
-
 
 mongoose.connect(mongoURI)
 mongoose.Promise = global.Promise;

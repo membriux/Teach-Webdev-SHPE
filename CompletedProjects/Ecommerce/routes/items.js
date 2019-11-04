@@ -30,33 +30,17 @@ router.get('/new', function(req, res, next) {
   res.render('items/new');
 });
 
-router.get('/payment' ,(req,res,next) =>{
-  stripe.charges.create(
-    {
-      amount:500,
-      currency:'usd',
-      source:'tok_visa_debit',
-      shipping:{
-        address:{
-          line1:'45 N Adams Ave',
-        },
-        name:'John Doe',
-        phone:'15597863254',
-      },
-      description:'test charge',
-    },
-    function(err, charge){
-      if(err) {console.log(err);}
-      console.log(charge);
-    }
-  );
-  res.redirect('/items')
+router.get('/:id/payment' ,(req,res,next) =>{
+  Item.findById(req.params.id, function(err, item){
+    if(err){console.log(err);}
+    res.render('items/payment',{item:item});
+  });
 });
 
 router.get('/:id', function(req,res,next){
   Item.findById(req.params.id, function(err, item){
     if(err){console.log(err);}
-    res.render('items/show',{item:item, itemid:req.params.id});
+    res.render('items/show',{item:item});
   });
 });
 
@@ -76,6 +60,28 @@ router.post('/', upload.single('image'),  (req, res, next) => {
   });
 });
 
+router.post('/:id/payment', (req, res, next) => {
+  stripe.charges.create(
+    {
+      amount:req.body.price,
+      currency:'usd',
+      source:'tok_visa_debit',
+      shipping:{
+        address:{
+          line1:req.body.address,
+        },
+        name:req.body.name,
+        phone:req.body.phone,
+      },
+      description:'test charge',
+    },
+    function(err, charge){
+      if(err) {console.log(err);}
+      console.log(charge);
+    }
+  );
+  res.redirect('/items')
+});
 
 
 
