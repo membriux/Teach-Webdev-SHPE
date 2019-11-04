@@ -1,12 +1,15 @@
+
+// ––––– STEP 3: Add items for sale
 var express = require('express');
 var router = express.Router();
 const Item = require('../models/item');
 var multer = require('multer');
 var path = require('path');
 var fs = require('fs');
-const stripe = require("stripe")("sk_test_VrukSjUwwp7W8rJUr3KbgaiD002agmaeb0");
+const stripe = require("stripe")("API_KEY");
 
 
+// Create file for storing image
 const storage = multer.diskStorage({
   filename: function (req, file, cb) {
     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
@@ -16,6 +19,7 @@ const storage = multer.diskStorage({
 const upload = multer({storage: storage});
 
 
+// Get all Items
 router.get('/', function(req, res, next) {
   Item.find({},  function(err, items) {
     if(err) {
@@ -26,10 +30,13 @@ router.get('/', function(req, res, next) {
   });
 });
 
+
 router.get('/new', function(req, res, next) {
   res.render('items/new');
 });
 
+
+// BONUS: Implement Stipe API
 router.get('/payment' ,(req,res,next) =>{
   stripe.charges.create(
     {
@@ -53,6 +60,7 @@ router.get('/payment' ,(req,res,next) =>{
   res.redirect('/items')
 });
 
+// Get Specific Item for sale
 router.get('/:id', function(req,res,next){
   Item.findById(req.params.id, function(err, item){
     if(err){console.log(err);}
@@ -60,9 +68,8 @@ router.get('/:id', function(req,res,next){
   });
 });
 
-
+// POST Method to upload new item for sale
 router.post('/', upload.single('image'),  (req, res, next) => {
-//add new items
 
   var item = new Item(req.body);
   var img = fs.readFileSync(req.file.path).toString('base64');
@@ -75,8 +82,6 @@ router.post('/', upload.single('image'),  (req, res, next) => {
       return res.redirect('items/');
   });
 });
-
-
 
 
 module.exports = router;
