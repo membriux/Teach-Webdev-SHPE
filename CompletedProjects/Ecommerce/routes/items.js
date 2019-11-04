@@ -4,6 +4,7 @@ const Item = require('../models/item');
 var multer = require('multer');
 var path = require('path');
 var fs = require('fs');
+const stripe = require("stripe")("sk_test_VrukSjUwwp7W8rJUr3KbgaiD002agmaeb0");
 
 
 const storage = multer.diskStorage({
@@ -27,6 +28,29 @@ router.get('/', function(req, res, next) {
 
 router.get('/new', function(req, res, next) {
   res.render('items/new');
+});
+
+router.get('/payment' ,(req,res,next) =>{
+  stripe.charges.create(
+    {
+      amount:500,
+      currency:'usd',
+      source:'tok_visa_debit',
+      shipping:{
+        address:{
+          line1:'45 N Adams Ave',
+        },
+        name:'John Doe',
+        phone:'15597863254',
+      },
+      description:'test charge',
+    },
+    function(err, charge){
+      if(err) {console.log(err);}
+      console.log(charge);
+    }
+  );
+  res.redirect('/items')
 });
 
 router.get('/:id', function(req,res,next){
