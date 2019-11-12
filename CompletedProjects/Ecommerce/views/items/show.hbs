@@ -1,0 +1,19 @@
+<div class="fluid-container">
+  <div class="row">
+    <div class="col">
+      <div class="hero-image text-center">
+          <img src="data:{{item.img.contentType}};base64,{{item.img.data}}" alt="" >
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>{{item.name}}</h2>
+        <h4 class="text-secondary">${{item.price}}</h4>
+        <p>{{item.description}}</p>
+        <a href="/items/payment" class="btn btn-primary">Buy</a>
+      </div>
+    </div>
+  </div>
+</div>
