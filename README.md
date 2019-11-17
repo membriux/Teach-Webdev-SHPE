@@ -8,9 +8,8 @@ Welcome to SHPE Web Dev's GitHub repo. In this README, we will cover the lecture
 A simple, classic game of Tic Tac Toe implemented on using only HTML, CSS, Bootstrap, and JavaScript. In this project, students learned how the basics of HTML, CSS, Bootstrap, and Javascript.
 
 ### Built With
-**Front-end –** HTML, CSS, Bootstrap
-
-**Logic –** JavaScript
+- **Front-end –** HTML, CSS, Bootstrap
+- **Logic –** JavaScript
 
 ### Video Walkthrough/Example
 ![Tic Tac Toe](https://github.com/membriux/Teach-Webdev-SHPE/blob/GIFs/GIFs/ttt.gif?raw=true)
@@ -22,9 +21,8 @@ A simple, classic game of Tic Tac Toe implemented on using only HTML, CSS, Boots
 A web-based pokedex to view the stats of all your pokemon using the Pokedex API content downloaded as a JSON file. Students learned how to read JSON files using pure JavaScript and place each pokemon data into the HTML site. 
 
 ### Built With
-**Front-end –** HTML, CSS, Bootstrap
-
-**Logic –** JavaScript
+- **Front-end –** HTML, CSS, Bootstrap
+- **Logic –** JavaScript
 
 ### Video Walkthrough/Example
 ![Tic Tac Toe](https://github.com/membriux/Teach-Webdev-SHPE/blob/GIFs/GIFs/pokedex.gif?raw=true)
@@ -36,11 +34,9 @@ A web-based pokedex to view the stats of all your pokemon using the Pokedex API 
 A real-time group chat application implemented using Sockets io, MongoDB, Node JS, and Express JS. In this lesson students focused on learning how create their own database using MongoDB Atlas, connecting the database to their project, and be able to create and read data from their database.
 
 ### Built With
-**Front-end –** HTML, CSS, Bootstrap
-
-**Backend –** Node JS, Socket io, Experess JS
-
-**Database –** MongoDB
+- **Front-end –** HTML, CSS, Bootstrap
+- **Backend –** Node JS, Socket io, Experess JS
+- **Database –** MongoDB
 
 ### Video Walkthrough/Example
 ![Tic Tac Toe](https://github.com/membriux/Teach-Webdev-SHPE/blob/GIFs/GIFs/mongo-chat.gif?raw=true)
@@ -52,11 +48,9 @@ A real-time group chat application implemented using Sockets io, MongoDB, Node J
 A real-time Ecommerce application implemented using MongoDB, Node JS, and Express JS. In this lesson students focused on learning how create their own database using MongoDB Atlas, connecting the database to their project, and be able to create and read data from their database.
 
 ### Built With
-**Front-end –** HTML, CSS, Bootstrap
-
-**Backend –** Node JS, Experess JS
-
-**Database –** MongoDB
+- **Front-end –** HTML, CSS, Bootstrap
+- **Backend –** Node JS, Experess JS
+- **Database –** MongoDB
 
 ### Video Walkthrough/Example
 ![Tic Tac Toe](https://github.com/membriux/Teach-Webdev-SHPE/blob/GIFs/GIFs/ecommerce.gif?raw=true)
@@ -68,11 +62,9 @@ A real-time Ecommerce application implemented using MongoDB, Node JS, and Expres
 A web app that utilizes Google Map's APIs in that helps students locate bathroom locations so that they know where to find the bathrooms at the UCI Campus. Users are able to drop down more bathroom pins whenever they find a new bathroom.
 
 ### Built With
-**Front-end –** HTML, CSS, Bootstrap
-
-**Logic –** JavaScript
-
-**APIs –** Google Maps API
+- **Front-end –** HTML, CSS, Bootstrap
+- **Logic –** JavaScript
+- **APIs –** Google Maps API
 
 ### Video Walkthrough/Example
 ![Tic Tac Toe](https://github.com/membriux/Teach-Webdev-SHPE/blob/GIFs/GIFs/crap-maps.gif?raw=true)
