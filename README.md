@@ -25,9 +25,23 @@ A web-based pokedex to view the stats of all your pokemon using the Pokedex API 
 - **Logic –** JavaScript
 
 ### Video Walkthrough/Example
-![Tic Tac Toe](https://github.com/membriux/Teach-Webdev-SHPE/blob/GIFs/GIFs/pokedex.gif?raw=true)
+![Pokedex](https://github.com/membriux/Teach-Webdev-SHPE/blob/GIFs/GIFs/pokedex.gif?raw=true)
 
-## Project 3: Mongo Chat
+## Project 3: GitHub Search
+
+### Author – [Guillermo Hernandez](https://github.com/guilleeh)
+
+A web app that searches users from GitHub using GitHub's API and display basic information of the user that was clicked on. In this section students learned how to use jQuery to make API calls using GitHub's API and display the data on the HTML site.
+
+### Built With
+- **Front-end –** HTML, CSS, Bootstrap
+- **Logic –** jQuery, JavaScript
+- **APIs –** GitHub's API
+
+### Video Walkthrough/Example
+![GitHub Search](https://github.com/membriux/Teach-Webdev-SHPE/blob/GIFs/GIFs/github-search.gif?raw=true)
+
+## Project 4: Mongo Chat
 
 ### Author – [Guillermo Hernandez](https://github.com/guilleeh)
 
@@ -39,9 +53,9 @@ A real-time group chat application implemented using Sockets io, MongoDB, Node J
 - **Database –** MongoDB
 
 ### Video Walkthrough/Example
-![Tic Tac Toe](https://github.com/membriux/Teach-Webdev-SHPE/blob/GIFs/GIFs/mongo-chat.gif?raw=true)
+![Mongo Chat](https://github.com/membriux/Teach-Webdev-SHPE/blob/GIFs/GIFs/mongo-chat.gif?raw=true)
 
-## Project 4: Ecommerce
+## Project 5: Ecommerce
 
 ### Author – [Osvaldo](https://github.com/waldo023)
 
@@ -53,9 +67,9 @@ A real-time Ecommerce application implemented using MongoDB, Node JS, and Expres
 - **Database –** MongoDB
 
 ### Video Walkthrough/Example
-![Tic Tac Toe](https://github.com/membriux/Teach-Webdev-SHPE/blob/GIFs/GIFs/ecommerce.gif?raw=true)
+![Ecommerce](https://github.com/membriux/Teach-Webdev-SHPE/blob/GIFs/GIFs/ecommerce.gif?raw=true)
 
-## Project 5: Crap Maps
+## Project 6: Crap Maps
 
 ### Author – [Guillermo Sanchez](https://github.com/membriux)
 
@@ -67,4 +81,4 @@ A web app that utilizes Google Map's APIs in that helps students locate bathroom
 - **APIs –** Google Maps API
 
 ### Video Walkthrough/Example
-![Tic Tac Toe](https://github.com/membriux/Teach-Webdev-SHPE/blob/GIFs/GIFs/crap-maps.gif?raw=true)
+![Crap Maps](https://github.com/membriux/Teach-Webdev-SHPE/blob/GIFs/GIFs/crap-maps.gif?raw=true)
