@@ -9,6 +9,7 @@ A simple, classic game of Tic Tac Toe implemented on using only HTML, CSS, Boots
 
 ### Built With
 **Front-end –** HTML, CSS, Bootstrap
+
 **Logic –** JavaScript
 
 ### Video Walkthrough/Example
@@ -18,10 +19,11 @@ A simple, classic game of Tic Tac Toe implemented on using only HTML, CSS, Boots
 
 ### Author – [Guillermo Hernandez](https://github.com/guilleeh)
 
-A web-based pokedex to view the stats of all your pokemon using the Pokedex API content downloaded as a JSON file. Students learned how to read JSON files using pure JavaScript and place each pokemon data into the HTML site.
+A web-based pokedex to view the stats of all your pokemon using the Pokedex API content downloaded as a JSON file. Students learned how to read JSON files using pure JavaScript and place each pokemon data into the HTML site. 
 
 ### Built With
 **Front-end –** HTML, CSS, Bootstrap
+
 **Logic –** JavaScript
 
 ### Video Walkthrough/Example
@@ -35,7 +37,9 @@ A real-time group chat application implemented using Sockets io, MongoDB, Node J
 
 ### Built With
 **Front-end –** HTML, CSS, Bootstrap
+
 **Backend –** Node JS, Socket io, Experess JS
+
 **Database –** MongoDB
 
 ### Video Walkthrough/Example
@@ -49,7 +53,9 @@ A real-time Ecommerce application implemented using MongoDB, Node JS, and Expres
 
 ### Built With
 **Front-end –** HTML, CSS, Bootstrap
+
 **Backend –** Node JS, Experess JS
+
 **Database –** MongoDB
 
 ### Video Walkthrough/Example
@@ -63,7 +69,9 @@ A web app that utilizes Google Map's APIs in that helps students locate bathroom
 
 ### Built With
 **Front-end –** HTML, CSS, Bootstrap
+
 **Logic –** JavaScript
+
 **APIs –** Google Maps API
 
 ### Video Walkthrough/Example
